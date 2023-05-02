@@ -15,7 +15,7 @@ Login to the system
     Open login page
     Type in email
     Type in password
-    Click on the Submit button
+    Click on the Sign in button
     Assert dashboard
     [Teardown]    Close Browser
 
@@ -27,9 +27,9 @@ Type in email
     Input Text   ${LOGININPUT}   user04@getnada.com
 Type in password
     Input Text   ${PASSWORDINPUT}   Test-1234
-Click on The Submit button
+Click on The Sign in button
     Click Element   ${SIGNINBUTTON}
 Assert dashboard
-    wait until element is visible   ${PAGELOGO}
+    Wait until element is visible   ${PAGELOGO}
     Title Should Be    Scouts panel - sign in
     Capture Page Screenshot  alert.png
