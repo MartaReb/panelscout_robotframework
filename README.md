@@ -1,7 +1,7 @@
-###file is in the process of creating
+### file is in the process of creating
 
 ## Introduction
-The project was created as part of the Dare IT course, during which I learned how to write automated tests using the Robot Framework and Selenium Library.
+The project was created as part of the "Dare IT Challenge: Wstęp do Testów Automatycznych" course, during which I learned how to write automated tests using the Robot Framework and Selenium Library. Regression tests were written for the [Scouts Panel](https://scouts-test.futbolkolektyw.pl/en/login?redirected=true) application and performed in a [production environment](https://scouts.futbolkolektyw.pl/en/).
 The tests were performed in the Google Chrome browser using chromedriver.
 
 ## Getting started
