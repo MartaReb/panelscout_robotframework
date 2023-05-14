@@ -3,12 +3,11 @@ Library  SeleniumLibrary
 Documentation    Suite description #automated tests for scout website
 
 *** Variables ***
-${LOGIN URL}      https://scouts-test.futbolkolektyw.pl/en
+${LOGIN URL}      https://scouts.futbolkolektyw.pl/en/
 ${BROWSER}        Chrome
 ${LOGININPUT}       xpath=//*[@id='login']
 ${PASSWORDINPUT}        xpath=//*[@id='password']
 ${SIGNINBUTTON}     xpath=//*[@type='submit']
-${PAGELOGO}     xpath=//*[text()='Scouts Panel']
 ${INVALIDMESSAGE}   xpath=//*[text()='Identifier or password invalid.']
 
 

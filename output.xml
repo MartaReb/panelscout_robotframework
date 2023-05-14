@@ -1,125 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230505 21:37:48.837" rpa="false" schemaversion="3">
-<suite id="s1" name="Test Change Language On Login Page" source="C:\Users\marta\Documents\GitHub\panelscout_robotframework\test_change_language_on_login_page.robot">
-<test id="s1-t1" name="Change language on the login page" line="15">
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230507 14:23:14.583" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Add Language To Existing Player Rf" source="C:\Users\marta\Documents\GitHub\panelscout_robotframework\test_add_language_to_existing_player_rf.robot">
+<test id="s1-t1" name="Add language to existing player form" line="19">
 <kw name="Open login page">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${LOGIN URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230505 21:37:49.160" level="INFO">Opening browser 'Chrome' to base url 'https://scouts-test.futbolkolektyw.pl/en'.</msg>
-<msg timestamp="20230505 21:37:49.180" level="INFO">Executing: C:\Users\marta\Documents\GitHub\panelscout_robotframework\venv\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --output json</msg>
-<status status="PASS" starttime="20230505 21:37:49.160" endtime="20230505 21:37:52.118"/>
+<msg timestamp="20230507 14:23:14.946" level="INFO">Opening browser 'Chrome' to base url 'https://scouts.futbolkolektyw.pl/en/'.</msg>
+<msg timestamp="20230507 14:23:14.962" level="INFO">Executing: C:\Users\marta\Documents\GitHub\panelscout_robotframework\venv\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --output json</msg>
+<status status="PASS" starttime="20230507 14:23:14.945" endtime="20230507 14:23:18.488"/>
 </kw>
-<kw name="Title Should Be" library="SeleniumLibrary">
-<arg>Scouts panel - sign in</arg>
-<doc>Verifies that the current page title equals ``title``.</doc>
-<msg timestamp="20230505 21:37:52.124" level="INFO">Page title is 'Scouts panel - sign in'.</msg>
-<status status="PASS" starttime="20230505 21:37:52.118" endtime="20230505 21:37:52.125"/>
+<status status="PASS" starttime="20230507 14:23:14.945" endtime="20230507 14:23:18.488"/>
 </kw>
-<status status="PASS" starttime="20230505 21:37:49.160" endtime="20230505 21:37:52.125"/>
+<kw name="Type in email">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LOGININPUT}</arg>
+<arg>user04@getnada.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230507 14:23:18.495" level="INFO">Typing text 'user04@getnada.com' into text field 'xpath=//*[@id='login']'.</msg>
+<status status="PASS" starttime="20230507 14:23:18.494" endtime="20230507 14:23:19.108"/>
 </kw>
-<kw name="Click on the dropdown list with languages">
+<status status="PASS" starttime="20230507 14:23:18.493" endtime="20230507 14:23:19.109"/>
+</kw>
+<kw name="Type in password">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PASSWORDINPUT}</arg>
+<arg>Test-1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230507 14:23:19.111" level="INFO">Typing text 'Test-1234' into text field 'xpath=//*[@id='password']'.</msg>
+<status status="PASS" starttime="20230507 14:23:19.110" endtime="20230507 14:23:19.341"/>
+</kw>
+<status status="PASS" starttime="20230507 14:23:19.109" endtime="20230507 14:23:19.342"/>
+</kw>
+<kw name="Click on the Sign in button">
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${LANGUAGECHANGEBUTTON}</arg>
+<arg>${SIGNINBUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230505 21:37:52.130" level="INFO">Clicking element 'xpath=//*[contains(@class, 'MuiSelect-root')]'.</msg>
-<status status="PASS" starttime="20230505 21:37:52.128" endtime="20230505 21:37:52.240"/>
+<msg timestamp="20230507 14:23:19.344" level="INFO">Clicking element 'xpath=//*[@type='submit']'.</msg>
+<status status="PASS" starttime="20230507 14:23:19.343" endtime="20230507 14:23:19.629"/>
 </kw>
-<status status="PASS" starttime="20230505 21:37:52.128" endtime="20230505 21:37:52.241"/>
+<status status="PASS" starttime="20230507 14:23:19.342" endtime="20230507 14:23:19.629"/>
 </kw>
-<kw name="Click on the Polish language">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${POLISHLANGUAGE}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230505 21:37:52.252" level="INFO">Clicking element 'xpath=//*[@data-value='pl']'.</msg>
-<status status="PASS" starttime="20230505 21:37:52.250" endtime="20230505 21:37:52.623"/>
-</kw>
-<status status="PASS" starttime="20230505 21:37:52.250" endtime="20230505 21:37:52.624"/>
-</kw>
-<kw name="Assert changing language to Polish">
+<kw name="Click on Players button">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${REMINDERINPOLISH}</arg>
+<arg>${PLAYERSBUTTON}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230505 21:37:52.627" endtime="20230505 21:37:52.703"/>
+<status status="PASS" starttime="20230507 14:23:19.631" endtime="20230507 14:23:20.632"/>
 </kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<var>${ACTUALLANGUAGE}</var>
-<arg>${REMINDERINPOLISH}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230505 21:37:52.771" level="INFO">${ACTUALLANGUAGE} = Przypomnij hasło</msg>
-<status status="PASS" starttime="20230505 21:37:52.703" endtime="20230505 21:37:52.771"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${PLAYERSBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230507 14:23:20.633" level="INFO">Clicking element 'xpath=//*[text()='Players']'.</msg>
+<status status="PASS" starttime="20230507 14:23:20.633" endtime="20230507 14:23:20.788"/>
+</kw>
+<status status="PASS" starttime="20230507 14:23:19.630" endtime="20230507 14:23:20.788"/>
+</kw>
+<kw name="Click on player name on the list">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PLAYERNAMEONLIST}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230507 14:23:20.789" endtime="20230507 14:23:21.696"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${PLAYERNAMEONLIST}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230507 14:23:21.697" level="INFO">Clicking element 'xpath=//*[@data-testid='MUIDataTableBodyRow-3']/td[1]'.</msg>
+<status status="PASS" starttime="20230507 14:23:21.696" endtime="20230507 14:23:22.888"/>
+</kw>
+<status status="PASS" starttime="20230507 14:23:20.789" endtime="20230507 14:23:22.889"/>
+</kw>
+<kw name="Click on Add language button">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ADDLANGUAGEBUTTON}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230507 14:23:22.889" endtime="20230507 14:23:23.042"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADDLANGUAGEBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230507 14:23:23.043" level="INFO">Clicking element 'xpath=//*[@aria-label='Add language']'.</msg>
+<status status="PASS" starttime="20230507 14:23:23.042" endtime="20230507 14:23:23.105"/>
+</kw>
+<status status="PASS" starttime="20230507 14:23:22.889" endtime="20230507 14:23:23.105"/>
+</kw>
+<kw name="Type in language">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LANGUAGEINPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230507 14:23:23.106" endtime="20230507 14:23:23.131"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LANGUAGEINPUT}</arg>
+<arg>polish</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230507 14:23:23.132" level="INFO">Typing text 'polish' into text field 'xpath=//*[@name='languages[0]']'.</msg>
+<status status="PASS" starttime="20230507 14:23:23.131" endtime="20230507 14:23:23.300"/>
+</kw>
+<status status="PASS" starttime="20230507 14:23:23.106" endtime="20230507 14:23:23.300"/>
+</kw>
+<kw name="Click on the Submit button">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SUBMITBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230507 14:23:23.302" level="INFO">Clicking element 'xpath=//*[text()='Submit']'.</msg>
+<status status="PASS" starttime="20230507 14:23:23.301" endtime="20230507 14:23:23.435"/>
+</kw>
+<status status="PASS" starttime="20230507 14:23:23.301" endtime="20230507 14:23:23.435"/>
+</kw>
+<kw name="Assert add language">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${SAVEDPLAYERINFO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20230507 14:23:28.727" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230507 14:23:28.728" level="FAIL">Element 'xpath=//*[text()='Saved player.']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20230507 14:23:23.437" endtime="20230507 14:23:28.733"/>
+</kw>
+<kw name="Reload Page" library="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" starttime="20230507 14:23:28.733" endtime="20230507 14:23:28.733"/>
+</kw>
+<kw name="Get Value" library="SeleniumLibrary">
+<var>${ACTUALADDEDLANGUAGE}</var>
+<arg>${LANGUAGEINPUT}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230507 14:23:28.734" endtime="20230507 14:23:28.734"/>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
-<arg>${ACTUALLANGUAGE}</arg>
-<arg>Przypomnij hasło</arg>
+<arg>${ACTUALADDEDLANGUAGE}</arg>
+<arg>polish</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20230505 21:37:52.771" endtime="20230505 21:37:52.772"/>
-</kw>
-<status status="PASS" starttime="20230505 21:37:52.626" endtime="20230505 21:37:52.772"/>
-</kw>
-<kw name="Click on the dropdown list with languages again">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${LANGUAGECHANGEBUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230505 21:37:52.834" level="INFO">Clicking element 'xpath=//*[contains(@class, 'MuiSelect-root')]'.</msg>
-<status status="PASS" starttime="20230505 21:37:52.833" endtime="20230505 21:37:52.994"/>
-</kw>
-<status status="PASS" starttime="20230505 21:37:52.832" endtime="20230505 21:37:52.995"/>
-</kw>
-<kw name="Click on the English language">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${ENGLISHLANGUAGE}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230505 21:37:53.025" level="INFO">Clicking element 'xpath=//*[@data-value='en']'.</msg>
-<status status="PASS" starttime="20230505 21:37:53.024" endtime="20230505 21:37:53.178"/>
-</kw>
-<status status="PASS" starttime="20230505 21:37:53.024" endtime="20230505 21:37:53.179"/>
-</kw>
-<kw name="Assert changing language to English">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${REMINDERINENGLISH}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230505 21:37:53.183" endtime="20230505 21:37:53.237"/>
-</kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<var>${ACTUALLANGUAGE}</var>
-<arg>${REMINDERINENGLISH}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230505 21:37:53.269" level="INFO">${ACTUALLANGUAGE} = Remind password</msg>
-<status status="PASS" starttime="20230505 21:37:53.238" endtime="20230505 21:37:53.269"/>
-</kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${ACTUALLANGUAGE}</arg>
-<arg>Remind password</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20230505 21:37:53.270" endtime="20230505 21:37:53.270"/>
+<status status="NOT RUN" starttime="20230507 14:23:28.734" endtime="20230507 14:23:28.734"/>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <arg>alert.png</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20230505 21:37:53.417" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="alert.png"&gt;&lt;img src="alert.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230505 21:37:53.270" endtime="20230505 21:37:53.417"/>
+<status status="NOT RUN" starttime="20230507 14:23:28.734" endtime="20230507 14:23:28.734"/>
 </kw>
-<status status="PASS" starttime="20230505 21:37:53.183" endtime="20230505 21:37:53.417"/>
+<status status="FAIL" starttime="20230507 14:23:23.436" endtime="20230507 14:23:28.734"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230505 21:37:53.418" endtime="20230505 21:37:55.653"/>
+<status status="PASS" starttime="20230507 14:23:28.737" endtime="20230507 14:23:33.865"/>
 </kw>
-<status status="PASS" starttime="20230505 21:37:49.160" endtime="20230505 21:37:55.654"/>
+<status status="FAIL" starttime="20230507 14:23:14.944" endtime="20230507 14:23:33.866">Element 'xpath=//*[text()='Saved player.']' not visible after 5 seconds.</status>
 </test>
 <doc>Suite description #automated tests for scout website</doc>
-<status status="PASS" starttime="20230505 21:37:48.839" endtime="20230505 21:37:55.659"/>
+<status status="FAIL" starttime="20230507 14:23:14.585" endtime="20230507 14:23:33.868"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Test Change Language On Login Page">Test Change Language On Login Page</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Add Language To Existing Player Rf">Test Add Language To Existing Player Rf</stat>
 </suite>
 </statistics>
 <errors>

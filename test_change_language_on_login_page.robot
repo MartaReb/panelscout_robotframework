@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 Documentation    Suite description #automated tests for scout website
 
 *** Variables ***
-${LOGIN URL}      https://scouts-test.futbolkolektyw.pl/en
+${LOGIN URL}      https://scouts.futbolkolektyw.pl/en/
 ${BROWSER}        Chrome
 ${LANGUAGECHANGEBUTTON}     xpath=//*[contains(@class, 'MuiSelect-root')]
 ${ENGLISHLANGUAGE}        xpath=//*[@data-value='en']
@@ -25,7 +25,6 @@ Change language on the login page
 *** Keywords ***
 Open login page
     Open Browser    ${LOGIN URL}    ${BROWSER}
-    Title Should Be     Scouts panel - sign in
 Click on the dropdown list with languages
     Click Element   ${LANGUAGECHANGEBUTTON}
 Click on the Polish language

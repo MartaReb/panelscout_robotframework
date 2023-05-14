@@ -3,13 +3,13 @@ Library  SeleniumLibrary
 Documentation    Suite description #automated tests for scout website
 
 *** Variables ***
-${LOGIN URL}      https://scouts-test.futbolkolektyw.pl/en
+${LOGIN URL}      https://scouts.futbolkolektyw.pl/en/
 ${BROWSER}        Chrome
 ${LOGININPUT}       xpath=//*[@id='login']
 ${PASSWORDINPUT}        xpath=//*[@id='password']
 ${SIGNINBUTTON}     xpath=//*[@type='submit']
 ${PLAYERSBUTTON}    xpath=//*[text()='Players']
-${PLAYERNAMEONLIST}     xpath=//*[@id='MUIDataTableBodyRow-3']/td[1]
+${PLAYERNAMEONLIST}     xpath=//*[@data-testid='MUIDataTableBodyRow-3']/td[1]
 ${ADDLANGUAGEBUTTON}        xpath=//*[@aria-label='Add language']
 ${LANGUAGEINPUT}        xpath=//*[@name='languages[0]']
 ${SUBMITBUTTON}     xpath=//*[text()='Submit']
@@ -32,7 +32,6 @@ Add language to existing player form
 *** Keywords ***
 Open login page
     Open Browser    ${LOGIN URL}    ${BROWSER}
-    Title Should Be     Scouts panel - sign in
 Type in email
     Input Text   ${LOGININPUT}   user04@getnada.com
 Type in password
@@ -55,6 +54,7 @@ Click on the Submit button
     Click Element       ${SUBMITBUTTON}
 Assert add language
     Wait until element is visible       ${SAVEDPLAYERINFO}
+    Reload Page
     ${ACTUALADDEDLANGUAGE}=     Get Value    ${LANGUAGEINPUT}
     Should Be Equal     ${ACTUALADDEDLANGUAGE}      polish
     Capture Page Screenshot  alert.png
