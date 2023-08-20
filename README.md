@@ -8,7 +8,11 @@ The tests were conducted in the Google Chrome browser using chromedriver.
 3. Add the chromedriver.exe file to the project.
 
 ## Run test
-To run test write in console: 
+To run tests from one file write in console: 
 ```
-robot name_of_the_file_with_test.robot
+robot Tests/name_of_the_file_with_test.robot
+```
+To run all tests write in consol: 
+```
+robot Tests
 ```
