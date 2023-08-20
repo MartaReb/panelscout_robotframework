@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 Documentation    Suite description #automated tests for scout website
 
 *** Variables ***
-${LOGIN URL}      https://scouts.futbolkolektyw.pl/en/
+${LOGIN URL}      https://scouts-test.futbolkolektyw.pl/en
 ${BROWSER}        Chrome
 ${LOGININPUT}       xpath=//*[@id='login']
 ${PASSWORDINPUT}        xpath=//*[@id='password']
@@ -14,6 +14,8 @@ ${ADDLANGUAGEBUTTON}        xpath=//*[@aria-label='Add language']
 ${LANGUAGEINPUT}        xpath=//*[@name='languages[0]']
 ${SUBMITBUTTON}     xpath=//*[text()='Submit']
 ${SAVEDPLAYERINFO}      xpath=//*[text()='Saved player.']
+${REMOVELANGUAGEBUTTON}     xpath=//*[@title='Remove language']
+${SAVEDPLAYERINFO}      xpath=//*[text()='Saved player.']
 
 *** Test Cases ***
 Add language to existing player form
@@ -21,12 +23,24 @@ Add language to existing player form
     Type in email
     Type in password
     Click on the Sign in button
-    Click on Players button
+    Click on the Players button
     Click on player name on the list
     Click on Add language button
     Type in language
     Click on the Submit button
     Assert add language
+    [Teardown]    Close Browser
+
+Remove language from existing player form
+    Open login page
+    Type in email
+    Type in password
+    Click on the Sign in button
+    Click on the Players button
+    Click on player name on the list
+    Click on the Remove language button
+    Click on the Submit button
+    Assert remove language
     [Teardown]    Close Browser
 
 *** Keywords ***
@@ -38,7 +52,7 @@ Type in password
     Input Text   ${PASSWORDINPUT}   Test-1234
 Click on the Sign in button
     Click Element   ${SIGNINBUTTON}
-Click on Players button
+Click on the Players button
     Wait until element is visible    ${PLAYERSBUTTON}
     Click Element   ${PLAYERSBUTTON}
 Click on player name on the list
@@ -58,3 +72,9 @@ Assert add language
     ${ACTUALADDEDLANGUAGE}=     Get Value    ${LANGUAGEINPUT}
     Should Be Equal     ${ACTUALADDEDLANGUAGE}      polish
     Capture Page Screenshot  alert.png
+Click on the Remove language button
+    Wait Until Element Is Visible    ${REMOVELANGUAGEBUTTON}
+    Click Element   ${REMOVELANGUAGEBUTTON}
+Assert remove language
+    Wait Until Element Is Visible   ${SAVEDPLAYERINFO}
+    Page Should Not Contain Textfield   ${LANGUAGEINPUT}
