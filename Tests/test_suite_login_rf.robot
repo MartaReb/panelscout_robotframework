@@ -1,13 +1,8 @@
 *** Settings ***
-Library  SeleniumLibrary
 Documentation    Suite description #automated tests for scout website
+Resource    ../Resources/resource.robot
 
 *** Variables ***
-${LOGIN URL}      https://scouts-test.futbolkolektyw.pl/en
-${BROWSER}        Chrome
-${LOGININPUT}       xpath=//*[@id='login']
-${PASSWORDINPUT}        xpath=//*[@id='password']
-${SIGNINBUTTON}     xpath=//*[@type='submit']
 ${PAGELOGO}     xpath=//*[text()='Scouts Panel']
 ${INVALIDMESSAGE}   xpath=//*[text()='Identifier or password invalid.']
 ${LANGUAGECHANGEBUTTON}     xpath=//*[contains(@class, 'MuiSelect-root')]
@@ -21,7 +16,7 @@ Login to the system
     Open login page
     Type in valid email
     Type in valid password
-    Click on the Sign in button
+    Click on the Sign In button
     Assert dashboard
     [Teardown]    Close Browser
 
@@ -29,7 +24,7 @@ Login to the system by entering invalid login
     Open login page
     Type in invalid email
     Type in valid password
-    Click on the Sign in button
+    Click on the Sign In button
     Assert checking invalid message
     [Teardown]    Close Browser
 
@@ -37,7 +32,7 @@ Login to the system by entering invalid password
     Open login page
     Type in valid email
     Type in invalid password
-    Click on the Sign in button
+    Click on the Sign In button
     Assert checking invalid message
     [Teardown]    Close Browser
 
@@ -52,15 +47,6 @@ Change language on the login page
     [Teardown]    Close Browser
 
 *** Keywords ***
-Open login page
-    Open Browser    ${LOGIN URL}    ${BROWSER}
-    Title Should Be     Scouts panel - sign in
-Type in valid email
-    Input Text   ${LOGININPUT}   user04@getnada.com
-Type in valid password
-    Input Text   ${PASSWORDINPUT}   Test-1234
-Click on The Sign in button
-    Click Element   ${SIGNINBUTTON}
 Assert dashboard
     Wait until element is visible   ${PAGELOGO}
     Title Should Be    Scouts panel - sign in

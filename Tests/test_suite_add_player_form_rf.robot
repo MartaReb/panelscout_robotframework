@@ -1,13 +1,8 @@
 *** Settings ***
-Library  SeleniumLibrary
 Documentation    Suite description #automated tests for scout website
+Resource    ../Resources/resource.robot
 
 *** Variables ***
-${LOGIN URL}      https://scouts-test.futbolkolektyw.pl/en
-${BROWSER}        Chrome
-${LOGININPUT}       xpath=//*[@id='login']
-${PASSWORDINPUT}        xpath=//*[@id='password']
-${SIGNINBUTTON}     xpath=//*[@type='submit']
 ${ADDPLAYERLINK}        xpath=//*[@href='/en/players/add']
 ${NAMEINPUT}        xpath=//*[@name='name']
 ${SURNAMEINPUT}     xpath=//*[@name='surname']
@@ -23,9 +18,9 @@ ${CLEARBUTTON}      xpath=//*[span[text()='Clear']]
 *** Test Cases ***
 Add player
     Open login page
-    Type in email
-    Type in password
-    Click on the Sign in button
+    Type in valid email
+    Type in valid password
+    Click on the Sign In button
     Click on the Add Player link
     Type in name
     Type in surname
@@ -38,9 +33,9 @@ Add player
 
 Clear add player form
     Open login page
-    Type in email
-    Type in password
-    Click on the Sign in button
+    Type in valid email
+    Type in valid password
+    Click on the Sign In button
     Click on the Add Player link
     Type in name
     Type in surname
@@ -51,14 +46,6 @@ Clear add player form
     [Teardown]    Close Browser
 
 *** Keywords ***
-Open login page
-    Open Browser    ${LOGIN URL}    ${BROWSER}
-Type in email
-    Input Text   ${LOGININPUT}   user04@getnada.com
-Type in password
-    Input Text   ${PASSWORDINPUT}   Test-1234
-Click on The Sign in button
-    Click Element   ${SIGNINBUTTON}
 Click on the Add Player link
     Wait until element is visible   ${ADDPLAYERLINK}
     Click Element       ${ADDPLAYERLINK}

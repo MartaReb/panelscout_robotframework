@@ -1,13 +1,8 @@
 *** Settings ***
-Library  SeleniumLibrary
 Documentation    Suite description #automated tests for scout website
+Resource    ../Resources/resource.robot
 
 *** Variables ***
-${LOGIN URL}      https://scouts-test.futbolkolektyw.pl/en
-${BROWSER}        Chrome
-${LOGININPUT}       xpath=//*[@id='login']
-${PASSWORDINPUT}        xpath=//*[@id='password']
-${SIGNINBUTTON}     xpath=//*[@type='submit']
 ${PLAYERSBUTTON}    xpath=//*[text()='Players']
 ${PLAYERNAMEONLIST}     xpath=//*[@data-testid='MUIDataTableBodyRow-3']/td[1]
 ${ADDLANGUAGEBUTTON}        xpath=//*[@aria-label='Add language']
@@ -20,9 +15,9 @@ ${SAVEDPLAYERINFO}      xpath=//*[text()='Saved player.']
 *** Test Cases ***
 Add language to existing player form
     Open login page
-    Type in email
-    Type in password
-    Click on the Sign in button
+    Type in valid email
+    Type in valid password
+    Click on the Sign In button
     Click on the Players button
     Click on player name on the list
     Click on Add language button
@@ -33,9 +28,9 @@ Add language to existing player form
 
 Remove language from existing player form
     Open login page
-    Type in email
-    Type in password
-    Click on the Sign in button
+    Type in valid email
+    Type in valid password
+    Click on the Sign In button
     Click on the Players button
     Click on player name on the list
     Click on the Remove language button
@@ -44,14 +39,6 @@ Remove language from existing player form
     [Teardown]    Close Browser
 
 *** Keywords ***
-Open login page
-    Open Browser    ${LOGIN URL}    ${BROWSER}
-Type in email
-    Input Text   ${LOGININPUT}   user04@getnada.com
-Type in password
-    Input Text   ${PASSWORDINPUT}   Test-1234
-Click on the Sign in button
-    Click Element   ${SIGNINBUTTON}
 Click on the Players button
     Wait until element is visible    ${PLAYERSBUTTON}
     Click Element   ${PLAYERSBUTTON}
